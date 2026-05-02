@@ -6,7 +6,14 @@ const connectDB=require('./config/DBconfig')
 const app=express();
 const msgRoutes=require('./routes/msgRoutes');
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.ORIGIN_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.use(express.json());    
 app.use("/api/v1",testingRoutes);  
 app.use("/api/v1",msgRoutes);
