@@ -22,7 +22,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-         `${import.meta.env.VITE_BACKEND_URL}`,
+         `${import.meta.env.VITE_BACKEND_URL}/sendmsg`,
         {
           name: formData.name,
           email: formData.email,
